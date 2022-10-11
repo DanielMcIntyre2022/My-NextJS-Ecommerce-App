@@ -19,8 +19,8 @@ export default function Home() {
     <div className="p-5">
       <div>
         {categoriesNames.map(categoryName => (
-          <div>
-               <h2 className="text-2xl">{categoryName}</h2>
+          <div key={categoryName}>
+               <h2 className="text-2xl capitalize">{categoryName}</h2>
           </div>
         ))}
     
