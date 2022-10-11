@@ -27,7 +27,9 @@ export default function Home() {
       <div>
         {categoriesNames.map(categoryName => (
           <div key={categoryName}>
-               <h2 className="text-2xl py-5 capitalize">{categoryName}</h2>
+            {products.find(products => products.category === categoryName) && (
+              <div>
+                <h2 className="text-2xl py-5 capitalize">{categoryName}</h2>
               <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
                {products.filter(product => product.category === categoryName).map(productInfo => (
                 <div key={productInfo._id} className="px-5 snap-start">
@@ -35,6 +37,8 @@ export default function Home() {
                 </div>
                ))}
               </div>
+              </div>
+            )}  
           </div>
         ))}
        <div className="py-4">
