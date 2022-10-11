@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import Footer from "../components/Footer";
 import Product from "../components/Product";
+import Layout from  "../components/Layout";
 import { initMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 
@@ -14,7 +16,7 @@ export default function Home({products}) {
   }
 
   return (
-    <div className="p-5">
+    <Layout>
       <input value={phrase} onChange={e => setPhrase(e.target.value)}type="text" placeholder="Search for products..." className="bg-gray-100 w-full py-2 px-4 rounded-xl"></input>
       <div>
         {categoriesNames.map(categoryName => (
@@ -34,7 +36,8 @@ export default function Home({products}) {
           </div>
         ))}
       </div>
-    </div>
+
+      </Layout>
   )
 }
 
