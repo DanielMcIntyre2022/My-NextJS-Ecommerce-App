@@ -14,7 +14,7 @@ export default function Product({_id, name, price, description,picture}) {
           <div className="mt-2">
             <h3 className="font-bold text-lg">{name}</h3>
           </div>
-          <p className="text-sm mt-1 leading-4"> 
+          <p className="text-sm mt-1 leading-4 text-gray-500"> 
           {description}
           </p>
           <div className="flex mt-1">
