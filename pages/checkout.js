@@ -8,21 +8,22 @@ export default function CheckoutPage() {
     const [productsInfos, setProductsInfos] = useState([]);
 
     useEffect(() => {
-
         const uniqIds = [...new Set(selectedProducts)];
         fetch('/api/products?ids='+uniqIds.join(','))
-        .then(res => res.json())
-        .then(json => setProductsInfos(json));
-    },[selectedProducts]);
+          .then(response => response.json())
+          .then(json => setProductsInfos(json));
+      }, [selectedProducts]);
 
     return (
         <Layout>
             {!productsInfos.length && (
                 <div>no products in your shopping cart</div>
             )}
-            {productsInfos.length && (
-                <div></div>
-            )}
+            {productsInfos.length && productsInfos.map(productsInfo => (
+                <div>
+                    {productsInfo.name}
+                </div>
+            ))}
         </Layout>
     );
 }
